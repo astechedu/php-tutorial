@@ -1,3 +1,4 @@
+
 //api-fetch-all.php
 
 header('Content-Type: application/json');
@@ -16,7 +17,10 @@ if(mysqli_num_rows($conn, $sql) > 0){
 }
 
 
+
+
 //api-fetch-single.php
+
  header('Content-Type: application/json');
  header('Access-Control-Allow-Origin: *');
  $data = json_decode(file_get_contents("php://input"), true);
@@ -33,3 +37,62 @@ if(mysqli_num_rows($conn, $sql) > 0){
 }else{
   echo json_encode(array("message"=>"No Record Found.", "status"=> false));
 }
+
+
+
+
+
+//api-insert.php    
+
+ header('Content-Type: application/json');
+ header('Access-Control-Allow-Origin: *');
+ header('Access-Control-Allow-Methods: POST');
+ header('Access-Control-Allow-Headers: Access-Control-Allow-Methods, Content-Type, Access-Control-Allow-Methods, Autherization, x-Requested-with');
+ 
+ $data = json_decode(file_get_contents("php://input"), true);
+ $name = $data['snnam'];
+ $age = $data['sage'];
+ $city= $data['scity'];
+ 
+include "config.php";
+
+ $sql = "insert into students(student_name, age, city) values('{$name}',{$age}, '{$city}')";
+ 
+if(mysqli_query($conn, $sql){
+  echo json_encode(array("message"=>"Student Record Inserted.", "status"=> true));
+}else{
+  echo json_encode(array("message"=>"Student Record not Inserted.", "status"=> false));
+}
+
+
+
+
+
+//api-update.php    
+
+ header('Content-Type: application/json');
+ header('Access-Control-Allow-Origin: *');
+ header('Access-Control-Allow-Methods: PUT');
+ header('Access-Control-Allow-Headers: Access-Control-Allow-Methods, Content-Type, Access-Control-Allow-Methods, Autherization, x-Requested-with');
+ 
+ $data = json_decode(file_get_contents("php://input"), true);
+ $id = $data['sid'];
+ $name = $data['snnam'];
+ $age = $data['sage'];
+ $city= $data['scity'];
+ 
+include "config.php";
+
+ $sql = "update students set student_name = '{$name}', age = {$age}, city = '{$city}'";
+ 
+if(mysqli_query($conn, $sql){
+  echo json_encode(array("message"=>"Student Record Updated.", "status"=> true));
+}else{
+  echo json_encode(array("message"=>"Student Record not Inserted.", "status"=> false));
+}
+
+
+//
+ajay
+
+
