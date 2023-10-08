@@ -4,7 +4,6 @@
 //array_fill(),array_fill_keys(),array_keys(), array_key_first(), array_key_last(), array_key_exists(), key_exists(), array_flip(),array_merge(),array_merge_recursive(),array_combine(),array_unique(),array_count_values(),count(),sizeof(),
 //array_product(),array_slice(),
 
-
 //Array Function: 
 //array_values(),array_count_values(),array_chunk(),array_column(),array_change_key_case(),array_diff(),array_diff_uassoc(),
 //array_diff_assoc(),array_diff_keys(),array_diff_ukey(),array_fill(),array_fill_keys(),array_filter(),array_flip(),
@@ -35,7 +34,37 @@
 $ar3 = ["a"=>"ram", "b"=>"geeta", "c"=>"santosh"];
 $ar4 = ["b"=>"ramesh", "e"=>"bhanu",30];
 
-//Today:
+//Alt+6-copy, Ctl+U - paste
+//Today
+
+// array_splice()
+//Syntax: array_splice(array, start, length, array-II);
+
+//                                -4      -3         -2      -1
+//           0       1      2      3       4          5       6
+$names = ["Apple", "Bat", "Cat", "Dog", "Elephant", "Fish", "Goat"];
+$planets = ["Mercury", "Venus"];
+
+print_r($names);
+
+
+
+ array_splice($names,-4,4);
+
+print_r($names);
+
+//print_r($names);
+
+
+
+
+
+
+
+
+
+
+
 
 
 //1. array_slice()
